@@ -1,7 +1,11 @@
 package com.firewall.inventory_service;
 
+import com.firewall.inventory_service.model.Inventory;
+import com.firewall.inventory_service.repository.InventoryRepo;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class InventoryServiceApplication {
@@ -10,4 +14,18 @@ public class InventoryServiceApplication {
 		SpringApplication.run(InventoryServiceApplication.class, args);
 	}
 
+	@Bean
+	public CommandLineRunner commandLineRunner(InventoryRepo repository) {
+		return args -> {
+			Inventory inventory = new Inventory();
+			inventory.setSkuCode("iphone_13");
+			inventory.setQuantity(100);
+			repository.save(inventory);
+
+			Inventory inventory1 = new Inventory();
+			inventory1.setSkuCode("iphone_13pro");
+			inventory1.setQuantity(10);
+			repository.save(inventory1);
+		};
+	}
 }
