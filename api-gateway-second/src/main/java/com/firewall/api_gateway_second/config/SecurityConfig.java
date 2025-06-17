@@ -1,0 +1,36 @@
+//package com.firewall.api_gateway_second.config;
+//
+//
+//
+//import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Configuration;
+//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+//import org.springframework.security.config.web.server.ServerHttpSecurity;
+//import org.springframework.security.web.server.SecurityWebFilterChain;
+//
+//@Configuration
+//@EnableWebSecurity
+//public class SecurityConfig {
+//
+//    @Bean
+//    public SecurityWebFilterChain securityFilterChain(ServerHttpSecurity serverHttpSecurity) throws Exception {
+//        serverHttpSecurity
+//                .csrf(csrf -> csrf.disable())
+//                .authorizeExchange(exchange -> exchange
+//                        .pathMatchers("/eureka/**")
+//                        .permitAll()
+//                        .anyExchange()
+//                        .authenticated())
+//                .oauth2ResourceServer(oauth2 -> oauth2
+//                        .jwt(jwt -> {
+//                            // Optional: customize JWT validation here
+//                            // jwt.jwtAuthenticationConverter(customJwtConverter());
+//                        })
+//                );
+//
+//        return serverHttpSecurity
+//                .build();
+//
+//    }
+//}
+//
